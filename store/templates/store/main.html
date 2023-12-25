@@ -12,24 +12,43 @@
 <body>
     
     <div class="navbarall">
-    <nav class="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="nav">
       
         <div class="container">
             <div class="logo">
-                <a href="{%url 'store'%}">Your Logo</a>
+                <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
             </div>
-            <div id="mainListDiv" class="main_list">
+            
+ 
+                
                 <ul class="navlinks">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Signup</a></li>
-                    <li>
-                        <div class="form-inline my-2 my-lg-0">
-                            <a href="{% url 'cart' %}">
-                        <img  id="cart-icon" src="{% static 'images/cart.png' %}"> 
-                    </a>
-                    <p id="cart-total">0</p>
-                </li>
-                </div>
+
+                    <div id="mainListDiv" class="main_list">
+                
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            
+                            <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">                                
+                                <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+                              </li>
+                            </ul>
+                              <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="{% url 'store' %}">Login <span class="sr-only">(current)</span></a>
+                                </li>
+                                
+                                <div class="form-inline my-2 my-lg-0">
+                                <a href="{% url 'cart' %}">
+                                   <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+                               </a>
+                               <p id="cart-total">0</p>
+                            </div>
+                           </div>
+                
                     
                         
                            
@@ -47,7 +66,8 @@
         </div>
         
     </nav>
-    
+</nav>
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
     <script src="{% static 'js/main.js' %}"></script>
     <script>
@@ -69,9 +89,14 @@
 
 
 
-{% block content %}
-    
-{% endblock content %}
+    <div class="container">
+        <br>
+        {% block content %}
+
+
+        {% endblock content %}
+     </div>
+
 
 </body>
 </html>
