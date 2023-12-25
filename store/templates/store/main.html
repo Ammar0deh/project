@@ -2,101 +2,128 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    <title>Ecom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Eclcom</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+            font-size: 62.5%;
+        }
+
+        .navbar {
+            z-index: 1000;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            margin-left: 15px;
+        }
+
+        .navbar-nav ml-auto {
+            text-align: right;
+        }
+
+        .navbar-nav li {
+            padding-right: 3rem;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #000000;
+            line-height: 65px;
+            font-size: 2.4rem;
+        }
+
+        .navbar-nav a:hover {
+            color: #00E676;
+        }
+
+        .navbar.affix {
+            padding: 0;
+            background-color: #111;
+        }
+
+        /* Add your additional styles here */
+        .myH2 {
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        .myP {
+            text-align: justify;
+            padding-left: 15%;
+            padding-right: 15%;
+            font-size: 20px;
+        }
+
+        @media all and (max-width: 700px) {
+            .myP {
+                padding: 2%;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="navbarall">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <nav class="nav">
-      
-        <div class="container">
-            <div class="logo">
-                <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-            </div>
-            
- 
-                
-                <ul class="navlinks">
 
-                    <div id="mainListDiv" class="main_list">
-                
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            
-                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">                                
-                                <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
-                              </li>
-                            </ul>
-                              <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="{% url 'store' %}">Login <span class="sr-only">(current)</span></a>
-                                </li>
-                                
-                                <div class="form-inline my-2 my-lg-0">
-                                <a href="{% url 'cart' %}">
-                                   <img  id="cart-icon" src="{% static 'images/cart.png' %}">
-                               </a>
-                               <p id="cart-total">0</p>
-                            </div>
-                           </div>
-                
-                    
-                        
-                           
-                       
-                       
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'store' %}">Your Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainListDiv" aria-controls="mainListDiv" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainListDiv">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+
+                    <div class="form-inline my-2 my-lg-0">
+                        <a href="{% url 'cart' %}">
+                           <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+                       </a>
+                       <p id="cart-total">0</p>
            
                    </div>
                 </ul>
-            
-            <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
+            </div>
         </div>
-        
     </nav>
-</nav>
-</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
-    <script src="{% static 'js/main.js' %}"></script>
+
     <script>
-    jQuery(document).ready(function($) {
-       $(window).scroll(function() {
-            if ($(document).scrollTop() > 50) {
-                $('.nav').addClass('affix');
-                console.log("OK");
-            } else {
-                $('.nav').removeClass('affix');
-            }
+        jQuery(document).ready(function($) {
+            $(window).scroll(function() {
+                if ($(document).scrollTop() > 50) {
+                    $('.navbar').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.navbar').removeClass('affix');
+                }
+            });
         });
-    });
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
-
 
     <div class="container">
         <br>
         {% block content %}
-
-
         {% endblock content %}
-     </div>
-
-
+    </div>
 </body>
 </html>
